@@ -11,5 +11,10 @@ namespace HelloWindowsForms
         {
             tbDemoText.Text = "Hello";
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

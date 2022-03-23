@@ -84,7 +84,11 @@
             // 
             // bUpdateText
             // 
-            this.bUpdateText.Location = new System.Drawing.Point(455, 114);
+            this.bUpdateText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bUpdateText.Location = new System.Drawing.Point(430, 114);
+            this.bUpdateText.MinimumSize = new System.Drawing.Size(50, 50);
             this.bUpdateText.Name = "bUpdateText";
             this.bUpdateText.Size = new System.Drawing.Size(196, 146);
             this.bUpdateText.TabIndex = 0;
@@ -200,6 +204,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
