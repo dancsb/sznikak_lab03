@@ -16,5 +16,12 @@ namespace HelloWindowsForms
         {
             Close();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            TreeNode root = treeView1.Nodes.Add("Local Disk (C:)");
+            root.Tag = new DirectoryInfo("C:\\");
+            root.Nodes.Add("");
+        }
     }
 }
