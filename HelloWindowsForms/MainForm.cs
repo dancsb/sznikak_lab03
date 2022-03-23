@@ -48,7 +48,13 @@ namespace HelloWindowsForms
             try
             {
                 foreach (FileInfo fi in parentDI.GetFiles())
-                    listView1.Items.Add(fi.Name);
+                    listView1.Items.Add(new ListViewItem(
+                        new String[] {
+                            fi.Name,
+                            fi.Length.ToString(),
+                            fi.LastWriteTime.ToString(),
+                            //fi.FullName,
+                        }));
             }
             catch { }
 
