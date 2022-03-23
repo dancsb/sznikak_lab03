@@ -23,5 +23,36 @@ namespace HelloWindowsForms
             root.Tag = new DirectoryInfo("C:\\");
             root.Nodes.Add("");
         }
+
+        private void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            DirectoryInfo parentDI = (DirectoryInfo)e.Node.Tag;
+            e.Node.Nodes.Clear();
+            try
+            {
+                foreach (DirectoryInfo dir in parentDI.GetDirectories())
+                {
+                    TreeNode node = new TreeNode(dir.Name);
+                    node.Tag = dir;
+                    node.Nodes.Add("");
+                    e.Node.Nodes.Add(node);
+                }
+            }
+            catch { }
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            DirectoryInfo parentDI = (DirectoryInfo)e.Node.Tag;
+            listView1.Items.Clear();
+            try
+            {
+                foreach (FileInfo fi in parentDI.GetFiles())
+                    listView1.Items.Add(fi.Name);
+            }
+            catch { }
+
+            tbDemoText.Text = parentDI.FullName;
+        }
     }
 }
